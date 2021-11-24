@@ -1,3 +1,13 @@
+:root {
+  --backround-color: #080808;
+  --text-white: white;
+  --text-blue: #92badd;
+  --text-blue--hover: #0a7ce0;
+  --text-orange: #ff7b00;
+  --orange: #ff7b00;
+  --orange--hover: #c46002;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -5,53 +15,101 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: var(--backround-color);
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-h1{
+
+h1 {
   @media (min-width: 450px) {
     max-width: 45%;
-  transition: 0.125s ease;
-  
+    transition: 0.125s ease;
+
   }
+
   @media (min-width: 875px) {
     max-width: 25%;
-  transition: 0.125s ease;
-  
+    transition: 0.125s ease;
+
   }
+
   @media (min-width: 1200px) {
     max-width: 20%;
-  transition: 0.125s ease;
-  
+    transition: 0.125s ease;
+
   }
+
   @media (min-width: 1800px) {
     max-width: 15%;
-  transition: 0.125s ease;
-  
+    transition: 0.125s ease;
+
   }
 }
-h4{
+a {
+  color: #92badd;
+  display:inline-block;
+  text-decoration: none;
+  font-weight: 400;
+}
+
+h2 {
+  text-align: center;
+  font-size: 16px;
+  font-weight: 600;
+  text-transform: uppercase;
+  display:inline-block;
+  margin: 40px 8px 10px 8px; 
+  color: #cccccc;
   @media (min-width: 450px) {
     font-size: 1rem;
-  transition: 0.125s ease;
-  
+    transition: 0.125s ease;
+
   }
+
   @media (min-width: 875px) {
     font-size: 1.2rem;
-  transition: 0.125s ease;
-  
+    transition: 0.125s ease;
+
   }
+
   @media (min-width: 1200px) {
-    font-size: 1.4;
-  transition: 0.125s ease;
-  
+    font-size: 1.4rem;
+    transition: 0.125s ease;
+
   }
+
   @media (min-width: 1800px) {
-    font-size: 1.6;
-  transition: 0.125s ease;
-  
+    font-size: 1.6rem;
+    transition: 0.125s ease;
+
+  }
+}
+
+h4 {
+  @media (min-width: 450px) {
+    font-size: 1rem;
+    transition: 0.125s ease;
+
+  }
+
+  @media (min-width: 875px) {
+    font-size: 1.2rem;
+    transition: 0.125s ease;
+
+  }
+
+  @media (min-width: 1200px) {
+    font-size: 1.4rem;
+    transition: 0.125s ease;
+
+  }
+
+  @media (min-width: 1800px) {
+    font-size: 1.6rem;
+    transition: 0.125s ease;
+
   }
 }

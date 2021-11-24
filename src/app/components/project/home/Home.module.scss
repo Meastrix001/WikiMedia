@@ -1,5 +1,10 @@
 
 .mediaContainer{
+  div{
+    -moz-animation: fadeInAnimation 0.5s ease;
+    -webkit-animation: fadeInAnimation 0.5s ease;
+    animation: fadeInAnimation 0.5s ease;
+  }
 h2{
 color: rgb(255, 123, 0);
 font-size: 1rem;
@@ -19,4 +24,12 @@ font-size: 2rem
 .wrapper{
   max-width: 1950px;
   margin: auto;
+}
+@keyframes fadeInAnimation {
+  0% {
+      opacity: 0;
+  }
+  100% {
+      opacity: 1;
+   }
 }

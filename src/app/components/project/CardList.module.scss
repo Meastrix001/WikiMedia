@@ -44,6 +44,9 @@ list-style: none;
 max-width: 100%;
 box-sizing: border-box;
 transition: 0.125s all;
+-moz-animation: fadeInAnimation 0.5s ease;
+-webkit-animation: fadeInAnimation 0.5s ease;
+animation: fadeInAnimation 0.5s ease;
 &:hover{
   z-index: 1;
   transform: scale(1.05);
@@ -83,6 +86,9 @@ h3{
   box-sizing: border-box;
   height: 20%;
   text-align: center;
+}
+h4{
+  color: var(--text-blue);
 }
 .titleing{
   position: absolute;
@@ -132,4 +138,12 @@ h3{
       }
     }
   }
+}
+@keyframes fadeInAnimation {
+  0% {
+      opacity: 0;
+  }
+  100% {
+      opacity: 1;
+   }
 }

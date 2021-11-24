@@ -1,9 +1,9 @@
 {
-  "name": "react-firebase-boilerplate",
+  "homepage": "http://Meastrix001.github.io/WikiMedia",
+  "name": "WikiMedia",
   "version": "0.1.0",
   "private": true,
   "public": "build",
-  "homepage": "/WikiMedia",
   "dependencies": {
     "@testing-library/jest-dom": "^5.12.0",
     "@testing-library/react": "^11.2.7",
@@ -21,6 +21,7 @@
     "web-vitals": "^1.1.2"
   },
   "scripts": {
+    "deploy": "npm run build && gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -64,6 +65,7 @@
     "@storybook/preset-create-react-app": "^3.1.7",
     "@storybook/react": "^6.2.9",
     "dotenv": "^10.0.0",
+    "gh-pages": "^3.2.3",
     "install": "^0.13.0"
   }
 }

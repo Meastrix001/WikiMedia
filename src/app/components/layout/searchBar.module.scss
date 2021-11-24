@@ -3,6 +3,7 @@
   display: flex;
   margin: auto;
   transition: 0.125s ease all;
+  padding: 4rem 0;
   @media (min-width: 800px) {
   width: 60%;
   }
@@ -14,13 +15,13 @@
       }
   input {
     width: 100%;
-    border: 3px solid rgb(255, 123, 0);
+    border: 3px solid var(--orange);;
     border-right: none;
     padding: 5px;
-    height: 36px;
+    height: 3rem;
     border-radius: 5px 0 0 5px;
     outline: none;
-    color: #9DBFAF;
+    color: var(--text-blue);
   }
   
   .searchTerm:focus{
@@ -29,14 +30,24 @@
   
   button {
     width: fit-content;
-    height: 36px;
-    border: 1px solid rgb(255, 123, 0);
-    background: rgb(255, 123, 0);
+    padding: 5px;
+    height: 3rem;
+    border: 1px solid var(--orange);;
+    background: var(--orange);
     text-align: center;
     color: #fff;
     border-radius: 0 5px 5px 0;
     cursor: pointer;
     font-size: 20px;
+    transition: 0.125s ease all;
+
+    &:hover{
+      background: var(--orange--hover);
+      cursor: pointer;
+      transition: 0.125s ease all;
+    border: 1px solid var(--orange--hover);
+
+    }
   }
   
   /*Resize the wrap to see the search bar change!*/

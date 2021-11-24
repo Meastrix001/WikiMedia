@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 const BASE_PATH_IAMGE = "https://image.tmdb.org/t/p"
 const IMAGE_SIZE = "/w500/"
 const LatestRelease = () => {
-  const LATEST_MOVIE = `https://api.themoviedb.org/3/movie/latest?api_key=${process.env.REACT_APP_API_KEY}&backdrop_path=true&language=en-US`
+  const LATEST_MOVIE = `https://api.themoviedb.org/3/movie/latest?api_key=${process.env.REACT_APP_MOVIE_API_KEY}&backdrop_path=true&language=en-US`
   const { data, isLoading} = useFetch(LATEST_MOVIE);
   return (
     <div className={styles.hero}>

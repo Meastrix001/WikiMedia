@@ -1,7 +1,17 @@
 .article{
       height: fit-content;
+      color: white;
+      .hero{
+        margin: 2rem 0;
+        margin: auto;
+        width: 50%;
+
+        img{
+          width: 100%;
+        }
+      }
       h2{
-        color: black;
+        color: var(--text-blue);
       }
   .picture{
     height: 100%;
@@ -47,13 +57,13 @@
   margin: auto;
 }
 .orange{
-  color: rgb(255, 123, 0);
+  color: var(--orange);
 }
 .rating{
   margin: 0;
   span{
 
-    color: rgb(255, 123, 0);
+    color:  var(--orange);
   }
   @media (min-width:1000px) {
     padding: 0.5rem;

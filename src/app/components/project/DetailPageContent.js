@@ -1,24 +1,34 @@
 import { useFetch } from "../../hooks";
 import { useState } from 'react';
 import styles from './Details.module.scss';
-
+import styles2 from './CardList.module.scss';
+import { ListItem } from ".";
 const DetailPageContent = ({ item, type }) => {
-  const CREDITS = `https://api.themoviedb.org/3/${type}/${item.id}/credits?api_key=${process.env.REACT_APP_API_KEY}&language=en-US`
-  const { data } = useFetch(CREDITS);
-  const [showAllCast, setShowAllCast] = useState(false)
-  const [showAllCrew, setShowAllCrew] = useState(false)
-  const creditsData = data
+  const CREDITS = `https://api.themoviedb.org/3/${type}/${item.id}/credits?api_key=${process.env.REACT_APP_MOVIE_API_KEY}&language=en-US`;
+  const SIMILAR = `https://api.themoviedb.org/3/${type}/${item.id}/similar?api_key=${process.env.REACT_APP_MOVIE_API_KEY}&language=en-US&page=1`
+  const { data, error, isLoading } = useFetch(CREDITS);
+  const { data2 } = useFetch(SIMILAR);
+  console.log("credit data",data)
+  console.log("similar data", data2)
+  const [showAllCast, setShowAllCast] = useState(false);
+  const [showAllCrew, setShowAllCrew] = useState(false);
+
+
   const toggleViewCast = () => {
-      showAllCast === true ? setShowAllCast(false) : setShowAllCast(true)
+      showAllCast === true ? setShowAllCast(false) : setShowAllCast(true);
   };
+
   const toggleViewCrew = () => {
-      showAllCrew === true ? setShowAllCrew(false) : setShowAllCrew(true)
+      showAllCrew === true ? setShowAllCrew(false) : setShowAllCrew(true);
   };
+
   return (
     <article className={`${styles.wrapper} ${styles.article}`}>   
+      <figure className={styles.hero}>
+        <img src={`https://image.tmdb.org/t/p/w500${item.backdrop_path !== null ? item.backdrop_path :  item.poster_path }`} alt={item.name} />
+      </figure>
 
       <div className={styles.picture}>
-        <img src={`https://image.tmdb.org/t/p/w500${item.backdrop_path !== null ? item.backdrop_path :  item.poster_path }`} alt={item.name} />
         <p className={styles.rating}>
           <span className={styles.orange}>{item.vote_average}/10 rating out of {item.vote_count} votes</span>
           </p>
@@ -35,22 +45,22 @@ const DetailPageContent = ({ item, type }) => {
         
         <div className={styles.padding}>
           <h2>Show lenght:</h2>
-          <p>{item.number_of_seasons} Seasons</p>
-          <p>{item.number_of_episodes} Episodes</p>
+          <p><span className={styles.orange}>{item.number_of_seasons} </span>Seasons</p>
+          <p><span className={styles.orange}>{item.number_of_episodes}</span> Episodes</p>
         </div>
 
         <div className={styles.padding}>
           <h2>First And last air date</h2>
-          <p>Aired first in: {item.first_air_date} </p>
-          <p>Aired last on{item.last_air_date}</p>
-          <p>avg episode lenght: {item.episode_run_time} minutes </p>
+          <p>Aired first in: <span className={styles.orange}>{item.first_air_date}</span> </p>
+          <p>Aired last on: <span className={styles.orange}>{item.last_air_date}</span></p>
+          <p>avg episode lenght: <span className={styles.orange}>{item.episode_run_time}</span> minutes </p>
         </div>
 
         <div className={styles.padding}>
             { item.next_episode_to_air !== null && item.next_episode_to_air !== undefined?
                   <div>
-                    <h2>Next episode  <span className={styles.orange}>"Season{item.next_episode_to_air.season_number} episode {item.next_episode_to_air.episode_number}"</span> airs on</h2>
-                    <p>{item.next_episode_to_air.air_date}, Titled: {item.next_episode_to_air.name}</p>
+                    <h2>Next episode  <span className={styles.orange}>"Season {item.next_episode_to_air.season_number} • episode {item.next_episode_to_air.episode_number}"</span> airs on</h2>
+                    <p>{item.next_episode_to_air.air_date} • Titled: {item.next_episode_to_air.name}</p>
                   </div> 
           : <h2>Next episode air date not yet know.</h2>
           }
@@ -83,7 +93,7 @@ const DetailPageContent = ({ item, type }) => {
       : ""
       }
 
-{ creditsData ?
+{ data ?
 
         <div>
 
@@ -91,7 +101,7 @@ const DetailPageContent = ({ item, type }) => {
           <div>
               <h2>Cast</h2>
             <ul className={`${showAllCast ? styles.usersOpen : styles.usersClosed} ${styles.ul}`}>
-              { creditsData.cast.length !== 0 ? creditsData.cast.map(member => {
+              { data.cast.length !== 0 ? data.cast.map(member => {
                 return(
                   <li key={member.cast_id}>
                      {member.profile_path !== null ? <img alt="" className={styles.userImg} src={`https://image.tmdb.org/t/p/original${member.profile_path}`}></img> : <div className={styles.userImg}></div>}
@@ -107,7 +117,7 @@ const DetailPageContent = ({ item, type }) => {
             <div>
               <h2>Crew</h2>
               <ul className={`${showAllCrew ? styles.usersOpen : styles.usersClosed} ${styles.ul}`}>
-              { creditsData.crew.length !== 0 ? creditsData.crew.map(member => {
+              { data.crew.length !== 0 ? data.crew.map(member => {
                 return(
                   <li key={member.id}>
                      {member.profile_path !== null ? <img alt="" className={styles.userImg} src={`https://image.tmdb.org/t/p/original${member.profile_path}`}></img> : <div className={styles.userImg}></div>}
@@ -124,6 +134,22 @@ const DetailPageContent = ({ item, type }) => {
       : ""
       }
 
+    <section>
+      { data2 ? 
+      <div>
+        
+        <h2>Similar to this:</h2>
+        <ul className={`${styles2.cardListClosed} ${styles2.ul}`}>
+
+        {
+          data2.results.map(result => {
+            return <li className={styles2.list}><ListItem data={result}/></li>
+          })
+        }
+        </ul>
+      </div>
+      : ""}
+    </section>
     </article>
   )
 };

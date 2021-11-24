@@ -7,13 +7,13 @@ const AuthContext = createContext(null);
 const useAuth = () => useContext(AuthContext);
 
 const AuthProvider = ({children}) => {
-  const [currentUser, setCurrentUser] = useState(JSON.parse(localStorage.getItem('react-firebase-pgm-4:currentUser')));
+  const [currentUser, setCurrentUser] = useState(JSON.parse(localStorage.getItem('user')));
   const { app } = useFirebase();
   const auth = app.auth();
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
-      localStorage.setItem('react-firebase-pgm-4:currentUser', JSON.stringify(user));
+      localStorage.setItem('user', JSON.stringify(user));
       setCurrentUser(user);
     });
 
@@ -31,7 +31,7 @@ const AuthProvider = ({children}) => {
   };
 
   const signOut = async () => {
-    localStorage.setItem('react-firebase-pgm-4:currentUser', null);
+    localStorage.setItem('user', null);
     return await auth.signOut();
   };
 

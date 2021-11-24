@@ -7,7 +7,7 @@ React Firebase Boilerplate | Associate Degree in Computer Programming
 `.env`
 
 ```
-REACT_APP_API_KEY=
+REACT_APP_MOVIE_API_KEY=
 REACT_APP_AUTH_DOMAIN=
 REACT_APP_DATABASE_URL=
 REACT_APP_PROJECT_ID=

@@ -11,8 +11,8 @@ const MoviesList =  () => {
   const [text, setText] = useState("")
   const [currentPage, setCurrentPage] = useState(1)
   
-  const ALL_API = `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&sort_by=popularity.desc&page=${currentPage}`
-    const SEARCH_MOVIES = `https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&query=${text}&page=${currentPage}&include_adult=false`
+  const ALL_API = `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_MOVIE_API_KEY}&language=en-US&sort_by=popularity.desc&page=${currentPage}`
+    const SEARCH_MOVIES = `https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_MOVIE_API_KEY}&language=en-US&query=${text}&page=${currentPage}&include_adult=false`
       const {data, error, isLoading}= useFetch(ALL_API, currentPage );
       
       const handleClick = (e) => {    
