@@ -10,22 +10,12 @@ const AccountDetails = () => {
     email: (!!currentUser !== false ? currentUser.email : ''),
     phone: (!!currentUser !== false ? currentUser.phoneNumber : 0)
   });
-  console.log(currentUser)
-
   const handleSubmit = async (ev) => {
-    console.log('handled submit')
-  console.log(currentUser)
-  
-  
-  
-  // ev.preventDefault();
-
   currentUser.updateProfile({
     photoURL: userInfo.photoURL,
     displayName: userInfo.txtName,
     phoneNumber: userInfo.phone,
   }).then(function() {
-      console.log("Changes Saved!")
     }).catch(function(error) {
       console.log("error updating profile, please try again later")
     });
@@ -35,7 +25,6 @@ const AccountDetails = () => {
   };
 
   const handleInputChange = async (ev) => {
-    console.log(ev.target.value)
     setuserInfo({
       ...userInfo,
       [ev.target.name]: ev.target.value

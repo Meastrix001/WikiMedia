@@ -1,15 +1,20 @@
 import { useFetch } from "../../hooks";
-import { useState } from 'react';
+import { useState} from 'react';
 import styles from './Details.module.scss';
 import styles2 from './CardList.module.scss';
+import { useParams } from "react-router-dom";
+// import {
+//   BrowserRouter as Router,
+//   useParams
+// } from "react-router-dom";
 import { ListItem } from ".";
 const DetailPageContent = ({ item, type }) => {
-  const CREDITS = `https://api.themoviedb.org/3/${type}/${item.id}/credits?api_key=${process.env.REACT_APP_MOVIE_API_KEY}&language=en-US`;
-  const SIMILAR = `https://api.themoviedb.org/3/${type}/${item.id}/similar?api_key=${process.env.REACT_APP_MOVIE_API_KEY}&language=en-US&page=1`
+  let { id } = useParams();
+  console.log(id)
+  const CREDITS = `https://api.themoviedb.org/3/${type}/${item.id ? item.id : id }/credits?api_key=${process.env.REACT_APP_MOVIE_API_KEY}&language=en-US`;
+  const SIMILAR = `https://api.themoviedb.org/3/${type}/${item.id ? item.id : id }/similar?api_key=${process.env.REACT_APP_MOVIE_API_KEY}&language=en-US&page=1`
   const { data, error, isLoading } = useFetch(CREDITS);
   const { data2 } = useFetch(SIMILAR);
-  console.log("credit data",data)
-  console.log("similar data", data2)
   const [showAllCast, setShowAllCast] = useState(false);
   const [showAllCrew, setShowAllCrew] = useState(false);
 

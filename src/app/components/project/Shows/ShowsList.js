@@ -16,14 +16,11 @@ const ShowsList = () => {
   const ALL_API = `https://api.themoviedb.org/3/discover/tv?api_key=${process.env.REACT_APP_MOVIE_API_KEY}&language=en-US&sort_by=popularity.desc&page=${currentPage}&timezone=America%2FNew_York&include_null_first_air_dates=false&with_watch_monetization_types=flatrate`
   const SEARCH_SHOW = `https://api.themoviedb.org/3/search/tv?api_key=${process.env.REACT_APP_MOVIE_API_KEY}&language=en-US&page=${currentPage}&query=${text}&include_adult=false`
   const { data, isLoading, error } = useFetch(ALL_API, currentPage);
-    console.log(isLoading)
 const handleClick = (e) => {    
-  // e.preventDefault();    
   setCurrentPage(currentPage + 1 )
 }
 
 const handleClickBack = (e) => {    
-  // e.preventDefault();    
   setCurrentPage(currentPage - 1)
 }
 

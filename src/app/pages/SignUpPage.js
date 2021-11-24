@@ -20,9 +20,7 @@ const SignUpPage = () => {
   };
   const createUser = (e) => {
     e.preventDefault()
-    console.log("starting")
       firebase.auth().createUserWithEmailAndPassword(signInForm.txtEmail, signInForm.txtPassword).then(function(value) {
-      console.log(value);
       <Redirect to={HomePage} />
     }).catch(function(error) {
       console.log(error);

@@ -12,22 +12,17 @@ const TopRatedShows = ({apiKey}) => {
   const [showAll, setShowAll] = useState(false)
   
   const { data, isLoading, error } = useFetch(MOVIE_TOPRATED, currentPage);
-    console.log(isLoading)
-const handleClick = (e) => {    
-  // e.preventDefault();    
-  setCurrentPage(currentPage + 1)
-  console.log('The link was clicked.', currentPage);
-}
+  const handleClick = (e) => {    
+    setCurrentPage(currentPage + 1)
+  }
 
-const handleClickBack = (e) => {    
-  // e.preventDefault();    
-  setCurrentPage(currentPage - 1)
-  console.log('previous page', currentPage);
-}
-const toggleView = (e) => {
-  e.preventDefault()
+  const handleClickBack = (e) => {
+    setCurrentPage(currentPage - 1)
+  }
+  const toggleView = (e) => {
+    e.preventDefault()
     showAll === true ? setShowAll(false) : setShowAll(true)
-};
+  };
 
   return(
     <div>

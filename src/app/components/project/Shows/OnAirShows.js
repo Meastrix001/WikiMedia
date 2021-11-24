@@ -10,17 +10,12 @@ const OnAirShows = ({apiKey}) => {
   const MOVIE_TOPRATED = ` https://api.themoviedb.org/3/tv/on_the_air?api_key=${apiKey}&language=en-US&page=${currentPage}`
     const { data, isLoading, error } = useFetch(MOVIE_TOPRATED, currentPage);
     const [showAll, setShowAll] = useState(false)
-    console.log(isLoading)
 const handleClick = (e) => {    
-  // e.preventDefault();    
   setCurrentPage(currentPage + 1)
-  console.log('The link was clicked.', currentPage);
 }
 
 const handleClickBack = (e) => {    
-  // e.preventDefault();    
   setCurrentPage(currentPage - 1)
-  console.log('previous page', currentPage);
 }
 
 const toggleView = () => {

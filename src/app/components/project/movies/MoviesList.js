@@ -16,15 +16,11 @@ const MoviesList =  () => {
       const {data, error, isLoading}= useFetch(ALL_API, currentPage );
       
       const handleClick = (e) => {    
-        // e.preventDefault();    
         setCurrentPage(currentPage + 1)
-        console.log('The link was clicked.', currentPage);
     }
 
     const handleClickBack = (e) => {    
-      // e.preventDefault();    
       setCurrentPage(currentPage - 1)
-      console.log('previous page', currentPage);
   }
 
   return (

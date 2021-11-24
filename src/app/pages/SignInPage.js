@@ -14,7 +14,6 @@ const SignInPage = ({children}) => {
 
   const handleSubmit = async (ev) => {
     ev.preventDefault();
-    console.log(signInForm.txtEmail, signInForm.txtPassword)
     const result = await signInWithEmailAndPassword(signInForm.txtEmail, signInForm.txtPassword);
     if (result) {
       history.goBack();
