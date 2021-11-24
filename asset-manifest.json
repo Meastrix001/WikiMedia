@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/WikiMedia/static/css/main.2fa1823c.chunk.css",
+    "main.css": "/WikiMedia/static/css/main.b092f116.chunk.css",
     "main.js": "/WikiMedia/static/js/main.4455f683.chunk.js",
     "main.js.map": "/WikiMedia/static/js/main.4455f683.chunk.js.map",
     "runtime-main.js": "/WikiMedia/static/js/runtime-main.3e65deee.js",
@@ -10,7 +10,7 @@
     "static/js/3.4f041c65.chunk.js": "/WikiMedia/static/js/3.4f041c65.chunk.js",
     "static/js/3.4f041c65.chunk.js.map": "/WikiMedia/static/js/3.4f041c65.chunk.js.map",
     "index.html": "/WikiMedia/index.html",
-    "static/css/main.2fa1823c.chunk.css.map": "/WikiMedia/static/css/main.2fa1823c.chunk.css.map",
+    "static/css/main.b092f116.chunk.css.map": "/WikiMedia/static/css/main.b092f116.chunk.css.map",
     "static/js/2.6c51e61a.chunk.js.LICENSE.txt": "/WikiMedia/static/js/2.6c51e61a.chunk.js.LICENSE.txt",
     "static/media/NotFoundPage.module.scss": "/WikiMedia/static/media/fof_background.b8e410e1.jpg",
     "static/media/logo.196c1167.png": "/WikiMedia/static/media/logo.196c1167.png"
@@ -18,7 +18,7 @@
   "entrypoints": [
     "static/js/runtime-main.3e65deee.js",
     "static/js/2.6c51e61a.chunk.js",
-    "static/css/main.2fa1823c.chunk.css",
+    "static/css/main.b092f116.chunk.css",
     "static/js/main.4455f683.chunk.js"
   ]
 }
